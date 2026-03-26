@@ -1,6 +1,22 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
+import { ProductModule } from './product/product.module';
+import { Product } from './product/entities/product.entity';
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: "postgres",
+      host: "localhost",
+      port: 5432,
+      username: "postgres",
+      password: "0888",
+      database: "microservice",
+      entities: [Product],
+      autoLoadEntities: true, 
+      synchronize: true,
+    }),
+    ProductModule,
+  ],
   controllers: [],
   providers: [],
 })
