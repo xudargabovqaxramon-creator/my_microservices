@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { ProductModule } from './product/product.module';
 import { Product } from './product/entities/product.entity';
+import { OrderModule } from './order/order.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -16,6 +17,7 @@ import { Product } from './product/entities/product.entity';
       synchronize: true,
     }),
     ProductModule,
+    OrderModule,
   ],
   controllers: [],
   providers: [],
